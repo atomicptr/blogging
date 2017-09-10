@@ -12,11 +12,23 @@ class BloggingController extends ActionController {
     */
     protected $postRepository;
 
+    /**
+    * @var \Atomicptr\Blogging\Domain\Repository\CategoryRepository
+    * @inject
+    */
+    protected $categoryRepository;
+
     public function listAction() {
         $posts = $this->postRepository->findAll();
         $this->view->assign("posts", $posts);
     }
 
-    public function listPostsWithCategories() {
+    public function listPostByCategoryAction() {
+        $categoryUid = $this->request->getArgument("categoryUid");
+
+        $posts = $this->postRepository->findByCategoryUid($categoryUid);
+        $category = $this->categoryRepository->findByUid($categoryUid);
+        $this->view->assign("posts", $posts);
+        $this->view->assign("category", $category);
     }
 }

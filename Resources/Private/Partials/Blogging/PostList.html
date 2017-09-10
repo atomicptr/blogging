@@ -1,0 +1,7 @@
+<div class="posts">
+    <f:for each="{posts}" as="post">
+        <f:if condition="!{post.navHide}">
+            <f:render partial="Blogging/PostListItem" arguments="{post: post}" />
+        </f:if>
+    </f:for>
+</div>

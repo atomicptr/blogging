@@ -13,7 +13,22 @@
     <f:if condition="{post.categories -> f:count()} > 0">
         <div class="post-categories">
             <f:for each="{post.categories}" as="category" iteration="iter">
-                #{category.title}<f:if condition="!{iter.isLast}">, </f:if>
+                <f:if condition="{settings.categoryPage}">
+                    <f:then>
+                        <f:link.action
+                            pageUid="{settings.categoryPage}"
+                            action="listPostByCategory"
+                            controller="Blogging"
+                            pluginName="CategoryPostListPlugin"
+                            arguments="{categoryUid: category.uid}">
+                                #{category.title}
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                        #{category.title}
+                    </f:else>
+                </f:if>
+                <f:if condition="!{iter.isLast}">, </f:if>
             </f:for>
         </div>
     </f:if>

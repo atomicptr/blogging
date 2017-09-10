@@ -9,8 +9,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 class PostRepository extends Repository {
 
-    protected $constraints = [];
-
     protected $fullSettings;
     protected $settings;
 
@@ -24,24 +22,38 @@ class PostRepository extends Repository {
         $querySettings->setRespectStoragePage(false);
         $this->setDefaultQuerySettings($querySettings);
 
-        $query = $this->createQuery();
-
-        $this->constraints[] = $query->equals("pid", $this->settings["blogPostStorageUid"]);
-
         $this->defaultOrderings = [
             "crdate" => QueryInterface::ORDER_DESCENDING,
         ];
     }
 
+    protected function defaultConstraints($query) {
+        return $query->logicalAnd(
+            $query->equals("pid", $this->settings["blogPostStorageUid"])
+        );
+    }
+
     public function findAll() {
         $query = $this->createQuery();
-        $query->matching($query->logicalAnd($this->constraints));
+        $query->matching($this->defaultConstraints($query));
         return $query->execute();
     }
 
     public function findByUid($uid) {
         $query = $this->createQuery();
-        $query->matching($query->logicalAnd($this->constraints, $query->equals("uid", $uid)));
+        $query->matching(
+            $query->logicalAnd(
+                $this->defaultConstraints($query),
+                $query->equals("uid", $uid)));
+        return $query->execute();
+    }
+
+    public function findByCategoryUid($categoryUid) {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+                $this->defaultConstraints($query),
+                $query->contains("categories", $categoryUid)));
         return $query->execute();
     }
 }

@@ -6,7 +6,13 @@ call_user_func(function($extKey) {
         "Atomicptr.Blogging",
         "PostListPlugin",
         ["Blogging" => "list"],
-        ["Blogging" => "list"]
-        //[Controller => action1, action2]
+        []
+    );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        "Atomicptr.Blogging",
+        "CategoryPostListPlugin",
+        ["Blogging" => "listPostByCategory"],
+        []
     );
 }, $_EXTKEY);

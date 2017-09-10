@@ -9,6 +9,12 @@ call_user_func(
             "List posts - Blogging"
         );
 
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            "Atomicptr.Blogging",
+            "CategoryPostListPlugin",
+            "List Posts by Category - Blogging"
+        );
+
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, "Configuration/TypoScript", "Blogging");
     },
     $_EXTKEY
