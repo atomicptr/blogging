@@ -17,7 +17,8 @@ plugin.tx_blogging {
         }
     }
 
-    persistence {
-        blogPostStorageUid = {$plugin.tx_blogging.blogPostStorageUid}
+    settings {
+        blogPostStorageUid = {$plugin.tx_blogging.settings.blogPostStorageUid}
+        categoryPage = {$plugin.tx_blogging.settings.categoryPage}
     }
 }

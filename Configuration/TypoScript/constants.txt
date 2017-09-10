@@ -15,9 +15,12 @@ plugin.tx_blogging {
         paginatorViewHelperRootPath = {$privateResources}/Templates/
     }
 
-    #customcategory=plugin.tx_blogging/persistencce=Persistence
-    persistence {
+    #customcategory=plugin.tx_blogging/persistencce=Settings
+    settings {
         # cat=plugin.tx_blogging/view; type=int+; label=Paginator View Helper Storage Uid
         blogPostStorageUid = 1
+
+        # cat=plugin.tx_blogging/view; type=int+; label=Page where you link the category
+        categoryPage =
     }
 }

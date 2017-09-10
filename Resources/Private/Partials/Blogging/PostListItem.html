@@ -1,0 +1,20 @@
+<div class="post">
+    <h1 class="post-title">
+        <f:link.page pageUid="{post.uid}">
+            {post.title}
+        </f:link.page>
+    </h1>
+    <span class="post-date"><f:format.date date="{post.crdate}" format="d. M. Y" /></span>
+
+    <div class="post-content">
+        {post.abstract}
+    </div>
+
+    <f:if condition="{post.categories -> f:count()} > 0">
+        <div class="post-categories">
+            <f:for each="{post.categories}" as="category" iteration="iter">
+                #{category.title}<f:if condition="!{iter.isLast}">, </f:if>
+            </f:for>
+        </div>
+    </f:if>
+</div>

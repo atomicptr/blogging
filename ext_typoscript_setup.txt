@@ -1,0 +1,17 @@
+config.tx_extbase.persistence {
+
+    classes {
+        Atomicptr\Blogging\Domain\Model\Post {
+            mapping {
+                tableName = pages
+                columns.crdate.mapOnProperty = crdate
+            }
+        }
+
+        Atomicptr\Blogging\Domain\Model\Category {
+            mapping {
+                tableName = sys_category
+            }
+        }
+    }
+}
