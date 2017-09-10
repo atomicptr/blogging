@@ -29,7 +29,8 @@ class PostRepository extends Repository {
 
     protected function defaultConstraints($query) {
         return $query->logicalAnd(
-            $query->equals("pid", $this->settings["blogPostStorageUid"])
+            $query->equals("pid", $this->settings["blogPostStorageUid"]),
+            $query->equals("nav_hide", 0) // don't show posts hidden from navigation
         );
     }
 
@@ -43,7 +44,7 @@ class PostRepository extends Repository {
         $query = $this->createQuery();
         $query->matching(
             $query->logicalAnd(
-                $this->defaultConstraints($query),
+                $query->equals("pid", $this->settings["blogPostStorageUid"]),
                 $query->equals("uid", $uid)));
         return $query->execute();
     }

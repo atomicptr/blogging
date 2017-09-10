@@ -31,11 +31,6 @@ class Post extends AbstractEntity {
     */
     protected $categories;
 
-    /** Is post "hidden"?
-    * @var bool
-    */
-    protected $navHide = false;
-
     public function __construct() {
         $this->categories = new ObjectStorage();
     }
@@ -83,13 +78,5 @@ class Post extends AbstractEntity {
     public function addCategory(Category $category) {
         $this->categories->attach($category);
         return $this;
-    }
-
-    public function getNavHide() {
-        return $this->navHide;
-    }
-
-    public function setNavHide(bool $navHide) {
-        $this->navHide = $navHide;
     }
 }
