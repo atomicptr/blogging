@@ -46,7 +46,7 @@ class PostRepository extends Repository {
             $query->logicalAnd(
                 $query->equals("pid", $this->settings["blogPostStorageUid"]),
                 $query->equals("uid", $uid)));
-        return $query->execute();
+        return $query->execute()[0];
     }
 
     public function findByCategories($categories) {
