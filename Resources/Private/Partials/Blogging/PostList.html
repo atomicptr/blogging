@@ -1,5 +1,7 @@
 <div class="posts">
-    <f:for each="{posts}" as="post">
-        <f:render partial="Blogging/PostListItem" arguments="{post: post}" />
-    </f:for>
+    <f:widget.paginate objects="{posts}" as="paginatedPosts" configuration="{itemsPerPage: 10}">
+        <f:for each="{paginatedPosts}" as="post">
+            <f:render partial="Blogging/PostListItem" arguments="{post: post}" />
+        </f:for>
+    </f:widget.paginate>
 </div>

@@ -1,0 +1,36 @@
+<f:renderChildren arguments="{contentArguments}" />
+
+<f:if condition="{pagination.pages -> f:count()} > 1">
+    <ul class="pagination">
+        <f:if condition="{pagination.previousPage}">
+                <li class="previous">
+                    <f:widget.link arguments="{currentPage: pagination.previousPage}">
+                        &laquo;
+                    </f:widget.link>
+                </li>
+        </f:if>
+
+        <f:for each="{pagination.pages}" as="page">
+            <f:if condition="{page.isCurrent}">
+                <f:then>
+                        <li class="active">
+                            <a>{page.number}</a>
+                        </li>
+                </f:then>
+                <f:else>
+                    <li>
+                            <f:widget.link arguments="{currentPage: page.number}">{page.number}</f:widget.link>
+                    </li>
+                </f:else>
+            </f:if>
+        </f:for>
+
+        <f:if condition="{pagination.nextPage}">
+                <li class="previous">
+                    <f:widget.link arguments="{currentPage: pagination.nextPage}">
+                        &raquo;
+                    </f:widget.link>
+                </li>
+        </f:if>
+    </ul>
+</f:if>

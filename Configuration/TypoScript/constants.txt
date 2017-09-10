@@ -6,13 +6,13 @@ plugin.tx_blogging {
     #customcategory=plugin.tx_blogging/view=View
     view {
         # cat=plugin.tx_blogging/view; type=string; label=Templates Root Path
-        templateRootPath = {$plugin.tx_blogging.privateResources}/Templates/
+        templateRootPath = EXT:blogging/Resources/Private/Templates/
 
         # cat=plugin.tx_blogging/view; type=string; label=Partials Root Path
-        partialRootPath = {$plugin.tx_blogging.privateResources}/Partials/
+        partialRootPath = EXT:blogging/Resources/Private/Partials/
 
         # cat=plugin.tx_blogging/view; type=string; label=Paginator View Helper Root Path
-        paginatorViewHelperRootPath = {$privateResources}/Templates/
+        paginatorViewHelperRootPath = EXT:blogging/Resources/Private/Templates/
     }
 
     #customcategory=plugin.tx_blogging/persistencce=Settings
