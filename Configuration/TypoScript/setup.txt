@@ -1,0 +1,23 @@
+plugin.tx_blogging {
+
+    view {
+        templateRootPaths {
+            0 = {$plugin.tx_blogging.privateResources}/Templates/
+            1 = {$plugin.tx_blogging.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = {$plugin.tx_blogging.privateResources}/Partials/
+            1 = {$plugin.tx_blogging.partialRootPath}
+        }
+
+        widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPaths {
+            0 = {$plugin.tx_blogging.privateResources}/Templates/
+            1 = {$plugin.tx_blogging.paginatorViewHelperRootPath}
+        }
+    }
+
+    persistence {
+        blogPostStorageUid = {$plugin.tx_blogging.blogPostStorageUid}
+    }
+}

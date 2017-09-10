@@ -1,0 +1,23 @@
+plugin.tx_blogging {
+
+    publicResources = EXT:blogging/Resources/Public/
+    privateResources = EXT:blogging/Resources/Private/
+
+    #customcategory=plugin.tx_blogging/view=View
+    view {
+        # cat=plugin.tx_blogging/view; type=string; label=Templates Root Path
+        templateRootPath = {$plugin.tx_blogging.privateResources}/Templates/
+
+        # cat=plugin.tx_blogging/view; type=string; label=Partials Root Path
+        partialRootPath = {$plugin.tx_blogging.privateResources}/Partials/
+
+        # cat=plugin.tx_blogging/view; type=string; label=Paginator View Helper Root Path
+        paginatorViewHelperRootPath = {$privateResources}/Templates/
+    }
+
+    #customcategory=plugin.tx_blogging/persistencce=Persistence
+    persistence {
+        # cat=plugin.tx_blogging/view; type=int+; label=Paginator View Helper Storage Uid
+        blogPostStorageUid = 1
+    }
+}
