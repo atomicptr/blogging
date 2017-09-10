@@ -20,5 +20,6 @@ plugin.tx_blogging {
     settings {
         blogPostStorageUid = {$plugin.tx_blogging.settings.blogPostStorageUid}
         categoryPage = {$plugin.tx_blogging.settings.categoryPage}
+        postsPerPage = {$plugin.tx_blogging.settings.postsPerPage}
     }
 }
