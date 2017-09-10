@@ -49,12 +49,24 @@ class PostRepository extends Repository {
         return $query->execute();
     }
 
-    public function findByCategoryUid($categoryUid) {
+    public function findByCategories($categories) {
         $query = $this->createQuery();
+
+        $categoryConstraints = [];
+
+        foreach($categories as $category) {
+            $categoryConstraints[] = $query->contains("categories", $category);
+        }
+
         $query->matching(
             $query->logicalAnd(
                 $this->defaultConstraints($query),
-                $query->contains("categories", $categoryUid)));
+                $query->logicalOr($categoryConstraints)));
+
         return $query->execute();
+    }
+
+    public function findByCategoryUid($categoryUid) {
+        return $this->findByCategories([$categoryUid]);
     }
 }

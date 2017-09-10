@@ -19,7 +19,16 @@ class BloggingController extends ActionController {
     protected $categoryRepository;
 
     public function listAction() {
-        $posts = $this->postRepository->findAll();
+        $posts = [];
+
+        if($this->settings["category"]) {
+            $categories = explode(",", $this->settings["category"]);
+            $posts = $this->postRepository->findByCategories($categories);
+
+        } else {
+            $posts = $this->postRepository->findAll();
+        }
+
         $this->view->assign("posts", $posts);
     }
 

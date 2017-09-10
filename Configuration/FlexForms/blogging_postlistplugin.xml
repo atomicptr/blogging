@@ -1,0 +1,40 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <el>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Asdf</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.category>
+                        <TCEforms>
+                            <exclude>0</exclude>
+                            <label>Select categories to display:</label>
+                            <config>
+                                <type>select</type>
+                                <autoSizeMax>20</autoSizeMax>
+                                <foreign_table>sys_category</foreign_table>
+                                <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC</foreign_table_where>
+                                <maxitems>200</maxitems>
+                                <renderMode>tree</renderMode>
+                                <size>5</size>
+                                <multiple>0</multiple>
+                                <treeConfig>
+                                    <appearance>
+                                        <expandAll>1</expandAll>
+                                        <showHeader>1</showHeader>
+                                    </appearance>
+                                    <parentField>parent</parentField>
+                                </treeConfig>
+                            </config>
+                        </TCEforms>
+                    </settings.category>
+                </el>
+            </ROOT>
+        </el>
+    </sheets>
+</T3DataStructure>
