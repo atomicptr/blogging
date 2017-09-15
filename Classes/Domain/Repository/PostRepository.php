@@ -2,7 +2,7 @@
 
 namespace Atomicptr\Blogging\Domain\Repository;
 
-use TYPO3\CMS\Form\Mvc\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
