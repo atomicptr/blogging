@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     "title" => "Blogging",
-    "description" => "Minimal blog extension that makes use of TYPO3s core concepts and elements.",
+    "description" => "Minimal blog extension that makes use of TYPO3s core elements.",
     "category" => "fe",
     "author" => "Christopher Kaster",
     "author_email" => "me@atomicptr.de",

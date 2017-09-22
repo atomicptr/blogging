@@ -27,7 +27,6 @@ class CategoryViewHelper extends AbstractViewHelper {
 
     protected function getCategoriesByPageUid($uid) {
         $objectManager = GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Object\\ObjectManager");
-
         $postRepository = $objectManager->get(PostRepository::class);
 
         $post = $postRepository->findByUid($uid);

@@ -1,6 +1,6 @@
 # Blogging
 
-Minimal blog extension that makes use of TYPO3s core concepts and elements.
+Minimal blog extension that makes use of TYPO3s core elements.
 
 ## Grab from TER
 

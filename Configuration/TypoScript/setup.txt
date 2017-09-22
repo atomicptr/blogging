@@ -22,4 +22,29 @@ plugin.tx_blogging {
         categoryPage = {$plugin.tx_blogging.settings.categoryPage}
         postsPerPage = {$plugin.tx_blogging.settings.postsPerPage}
     }
+
+    rss {
+        channelTitle = {$plugin.tx_blogging.rss.channelTitle}
+        channelDescription = {$plugin.tx_blogging.rss.channelDescription}
+    }
+}
+
+tx_blogging_rss = PAGE
+tx_blogging_rss {
+    typeNum = 1337
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+
+        additionalHeaders {
+            10.header = Content-Type: application/xml
+        }
+    }
+
+    10 = USER
+    10 {
+        userFunc = Atomicptr\Blogging\UserFunc\RssUserFunc->render
+    }
 }
