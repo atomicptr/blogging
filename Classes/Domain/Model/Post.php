@@ -79,4 +79,13 @@ class Post extends AbstractEntity {
         $this->categories->attach($category);
         return $this;
     }
+
+    public function getSummary() {
+        // TODO: generate a summary of the post
+        if(isset($this->abstract)) {
+            return $this->abstract;
+        }
+
+        return $this->description;
+    }
 }
