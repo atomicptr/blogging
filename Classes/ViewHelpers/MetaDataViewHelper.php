@@ -3,15 +3,23 @@
 namespace Atomicptr\Blogging\ViewHelpers;
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+use Atomicptr\Blogging\Domain\Repository\PostRepository;
 
 class MetaDataViewHelper extends AbstractViewHelper {
 
     public function initializeArguments() {
-        $this->registerArgument("post", "Atomicptr\Blogging\Domain\Model\Post", "The current post", true);
+        $this->registerArgument("postUid", "int+", "The current post", true);
     }
 
     public function render() {
-        $post = $this->arguments["post"];
+        $postUid = $this->arguments["postUid"];
+
+        $objectManager = GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Object\\ObjectManager");
+        $postRepository = $objectManager->get(PostRepository::class);
+
+        $post = $postRepository->findByUid($postUid);
 
         $content = $post->getContent();
 

@@ -4,7 +4,7 @@ Minimal blog extension that makes use of TYPO3s core elements.
 
 ## Grab from TER
 
-Not yet available.
+[blogging on TER](https://extensions.typo3.org/extension/blogging/)
 
 ## I want...
 
