@@ -30,7 +30,7 @@ class RssUserFunc {
         $items = "";
 
         foreach($posts as $post) {
-            $items .= $this->makeItem($post);
+            $items .= $this->makeItem($post, $settings["descriptionMaxLength"]);
         }
 
         $channelTitle = $settings["channelTitle"];
@@ -60,14 +60,18 @@ class RssUserFunc {
         return $rss;
     }
 
-    protected function makeItem($post) {
+    protected function makeItem($post, $descriptionMaxLength) {
         $link = $GLOBALS["TSFE"]->cObj->typoLink_URL([
             "parameter" => $post->getUid(),
             "forceAbsoluteUrl" => true,
         ]);
 
         $title = $post->getTitle();
-        $description = $post->getAbstract() ? "<description>".$post->getAbstract()."</description>" : "";
+        $description = $post->getSummary($descriptionMaxLength);
+
+        if(!empty($description)) {
+            $description = "<description>$description</description>";
+        }
 
         $pubDate = $post->getCrdate()->format("D, d M Y H:i:s O");
 

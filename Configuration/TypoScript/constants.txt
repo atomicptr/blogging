@@ -34,5 +34,8 @@ plugin.tx_blogging {
 
         # cat=plugin.tx_blogging/rss; type=int+; label=RSS Channel Description
         channelDescription = Minimal blog extension that makes use of TYPO3s core elements.
+
+        # cat=plugin.tx_blogging/rss; type=int+; label=Maximum length for descriptions
+        descriptionMaxLength = 500
     }
 }

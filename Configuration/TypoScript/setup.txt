@@ -26,11 +26,13 @@ plugin.tx_blogging {
     rss {
         channelTitle = {$plugin.tx_blogging.rss.channelTitle}
         channelDescription = {$plugin.tx_blogging.rss.channelDescription}
+        descriptionMaxLength = {$plugin.tx_blogging.rss.descriptionMaxLength}
     }
 }
 
 tx_blogging_rss = PAGE
 tx_blogging_rss {
+    # NOTE: if you want to change the typeNum, please also check out the realurl configuration
     typeNum = 1337
 
     config {
@@ -47,4 +49,10 @@ tx_blogging_rss {
     10 {
         userFunc = Atomicptr\Blogging\UserFunc\RssUserFunc->render
     }
+}
+
+page.headerData.1337 = TEXT
+page.headerData.1337 {
+    value = <link rel="alternate" type="application/atom+xml" title="{$plugin.tx_blogging.rss.channelTitle}" href="/rss.xml" />
+    insertData = 1
 }
