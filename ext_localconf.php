@@ -15,4 +15,10 @@ call_user_func(function($extKey) {
         ["Blogging" => "listPostByCategory"],
         []
     );
+
+
+    if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded("realurl")) {
+        $GLOBALS["TYPO3_CONF_VARS"]["SC_OPTIONS"]["ext/realurl/class.tx_realurl_autoconfgen.php"]["extensionConfiguration"]["blogging"] =
+            "Atomicptr\\Blogging\\Hooks\\RealUrlAutoConfiguration->addAutoConf";
+    }
 }, $_EXTKEY);
