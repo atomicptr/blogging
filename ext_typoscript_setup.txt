@@ -13,5 +13,11 @@ config.tx_extbase.persistence {
                 tableName = sys_category
             }
         }
+
+        Atomicptr\Blogging\Domain\Model\Content {
+            mapping {
+                tableName = tt_content
+            }
+        }
     }
 }

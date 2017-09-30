@@ -31,8 +31,20 @@ class Post extends AbstractEntity {
     */
     protected $categories;
 
+    /**
+    * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+    */
+    protected $media;
+
+    /**
+    * @var \Atomicptr\Blogging\Domain\Repository\ContentRepository
+    * @inject
+    */
+    protected $contentRepository;
+
     public function __construct() {
         $this->categories = new ObjectStorage();
+        $this->media = new ObjectStorage();
     }
 
     public function getTitle() {
@@ -80,7 +92,15 @@ class Post extends AbstractEntity {
         return $this;
     }
 
-    public function getSummary() {
+    public function getMedia() {
+        return $this->media;
+    }
+
+    public function getContent() {
+        return $this->contentRepository->findByPid($this->uid);
+    }
+
+    public function getSummary($length=null) {
         // TODO: generate a summary of the post
         if(isset($this->abstract)) {
             return $this->abstract;

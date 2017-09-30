@@ -13,11 +13,44 @@ class MetaDataViewHelper extends AbstractViewHelper {
     public function render() {
         $post = $this->arguments["post"];
 
-        debug($post);
+        $content = $post->getContent();
 
         $this->addTitleMetaTags($post->getTitle());
         $this->addDescriptionMetaTags($post->getSummary());
-        //$this->addImageMetaTags(...); TODO: determine first image in post
+
+        $media = $post->getMedia();
+
+        // post has media attached? Use first
+        if($media && $media->count() > 0) {
+            $this->addImageMetaTags($media->current()->getOriginalResource()->getPublicUrl());
+        } else {
+            $imageUrl = null;
+
+            $IMAGE_TYPE = 2;
+
+            foreach($content as $contentElement) {
+
+                if($contentElement->getImage()->count() > 0) {
+                    $imageUrl = $contentElement->getImage()->current()->getOriginalResource()->getPublicUrl();
+                }
+
+
+                if(!isset($imageUrl)) {
+                    foreach($contentElement->getAssets() as $asset) {
+                        if($asset->getOriginalResource()->getType() === $IMAGE_TYPE) {
+                            $imageUrl = $asset->getOriginalResource()->getPublicUrl();
+                            break;
+                        }
+                    }
+                }
+
+                if(isset($imageUrl)) {
+                    $this->addImageMetaTags($imageUrl);
+                    break;
+                }
+            }
+        }
+
         $this->addTypeMetaTags("article");
 
         if($post->getCategories()) {
