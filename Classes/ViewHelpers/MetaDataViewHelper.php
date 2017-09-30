@@ -16,7 +16,12 @@ class MetaDataViewHelper extends AbstractViewHelper {
         $content = $post->getContent();
 
         $this->addTitleMetaTags($post->getTitle());
-        $this->addDescriptionMetaTags($post->getSummary());
+
+        $summary = $post->getSummary(150);
+
+        if(!empty($summary)) {
+            $this->addDescriptionMetaTags($summary);
+        }
 
         $media = $post->getMedia();
 
@@ -34,7 +39,7 @@ class MetaDataViewHelper extends AbstractViewHelper {
                     $imageUrl = $contentElement->getImage()->current()->getOriginalResource()->getPublicUrl();
                 }
 
-
+                // try to find an image from assets
                 if(!isset($imageUrl)) {
                     foreach($contentElement->getAssets() as $asset) {
                         if($asset->getOriginalResource()->getType() === $IMAGE_TYPE) {

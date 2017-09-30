@@ -3,6 +3,8 @@
 namespace Atomicptr\Blogging\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class Post extends AbstractEntity {
 
@@ -100,12 +102,35 @@ class Post extends AbstractEntity {
         return $this->contentRepository->findByPid($this->uid);
     }
 
-    public function getSummary($length=null) {
-        // TODO: generate a summary of the post
+    public function getSummary($maxLength=null) {
+        $cObjRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+
+        $str = "";
+
         if(isset($this->abstract)) {
-            return $this->abstract;
+            $str = $this->abstract;
         }
 
-        return $this->description;
+        if(empty($str) && isset($this->description)) {
+            $str = $this->description;
+        }
+
+        // abstract nor description is set? Determine content from content elements
+        if(empty($str)) {
+            $contentElements = $this->getContent();
+
+            $str = join("", array_map(function($e) {
+                return $e->getBodytext();
+            }, $contentElements->toArray()));
+        }
+
+        if(isset($maxLength)) {
+            $append = "...";
+            $respectWordBoundaries = true;
+
+            $str = $cObjRenderer->cropHTML($str, "$maxLength|$append|$respectWordBoundaries");
+        }
+
+        return trim(strip_tags($str));
     }
 }

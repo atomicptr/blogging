@@ -1,3 +1,4 @@
+{namespace blogging=Atomicptr\Blogging\ViewHelpers}
 <div class="post">
     <h3 class="post-title">
         <f:link.page pageUid="{post.uid}">
@@ -7,7 +8,7 @@
     <span class="post-date"><f:format.date date="{post.crdate}" format="d. M. Y" /></span>
 
     <div class="post-content">
-        {post.abstract}
+        <blogging:postSummary post="{post}" maxLength="500" />
     </div>
 
     <f:if condition="{post.categories -> f:count()} > 0">

@@ -41,6 +41,10 @@ class Content extends AbstractEntity {
         $this->image = new ObjectStorage();
     }
 
+    public function getBodytext() {
+        return $this->bodytext;
+    }
+
     public function getAssets() {
         return $this->assets;
     }
