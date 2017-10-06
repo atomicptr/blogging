@@ -2,9 +2,15 @@
 
 Minimal blog extension that makes use of TYPO3s core elements.
 
-## Grab from TER
+## Download
 
 [blogging on TER](https://extensions.typo3.org/extension/blogging/)
+
+Or just install it via composer
+
+```
+composer require atomicptr/blogging
+```
 
 ## I want...
 
