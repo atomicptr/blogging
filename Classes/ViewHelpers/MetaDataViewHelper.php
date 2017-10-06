@@ -4,6 +4,7 @@ namespace Atomicptr\Blogging\ViewHelpers;
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Resource\FileReference;
 
 use Atomicptr\Blogging\Domain\Repository\PostRepository;
 
@@ -35,30 +36,30 @@ class MetaDataViewHelper extends AbstractViewHelper {
 
         // post has media attached? Use first
         if($media && $media->count() > 0) {
-            $this->addImageMetaTags($media->current()->getOriginalResource()->getPublicUrl());
+            $this->addImageMetaTags($media->current()->getOriginalResource());
         } else {
-            $imageUrl = null;
+            $image = null;
 
             $IMAGE_TYPE = 2;
 
             foreach($content as $contentElement) {
 
                 if($contentElement->getImage()->count() > 0) {
-                    $imageUrl = $contentElement->getImage()->current()->getOriginalResource()->getPublicUrl();
+                    $image = $contentElement->getImage()->current()->getOriginalResource();
                 }
 
                 // try to find an image from assets
-                if(!isset($imageUrl)) {
+                if(!isset($image)) {
                     foreach($contentElement->getAssets() as $asset) {
                         if($asset->getOriginalResource()->getType() === $IMAGE_TYPE) {
-                            $imageUrl = $asset->getOriginalResource()->getPublicUrl();
+                            $image = $asset->getOriginalResource();
                             break;
                         }
                     }
                 }
 
-                if(isset($imageUrl)) {
-                    $this->addImageMetaTags($imageUrl);
+                if(isset($image)) {
+                    $this->addImageMetaTags($image);
                     break;
                 }
             }
@@ -100,8 +101,12 @@ class MetaDataViewHelper extends AbstractViewHelper {
         $this->addMetaTag("twitter:description", $desc);
     }
 
-    protected function addImageMetaTags($imageUrl) {
-        $this->addMetaTag("og:image", $imageUrl);
+    protected function addImageMetaTags(FileReference $image) {
+        $baseUrl = $this->controllerContext->getRequest()->getBaseUri();
+
+        $this->addMetaTag("og:image", $baseUrl.$image->getPublicUrl());
+        $this->addMetaTag("og:image:width", $image->getProperty("width"));
+        $this->addMetaTag("og:image:height", $image->getProperty("height"));
     }
 
     protected function addTypeMetaTags($type) {
