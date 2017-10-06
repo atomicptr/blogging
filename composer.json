@@ -1,0 +1,33 @@
+{
+    "name": "atomicptr/blogging",
+    "type": "typo3-cms-extension",
+    "description": "Minimal blog extension that makes use of TYPO3s core elements.",
+    "keywords": [
+      "TYPO3 CMS",
+      "blog",
+      "blogging",
+      "article",
+      "post"
+    ],
+    "support": {
+      "issues": "https://github.com/atomicptr/blogging/issues"
+    },
+    "homepage": "https://github.com/atomicptr/blogging",
+    "authors": [
+      {
+        "name": "Christopher Kaster",
+        "email": "me@atomicptr.de",
+        "role": "Developer",
+        "homepage": "https://atomicptr.de"
+      }
+    ],
+    "license": "MIT",
+    "require": {
+      "php": ">=7.0.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "Atomicptr\\Blogging\\": "Classes"
+      }
+    }
+  }
