@@ -78,11 +78,15 @@ class MetaDataViewHelper extends AbstractViewHelper {
     }
 
     protected function addTitleMetaTags($title) {
+        $title = htmlspecialchars($title, ENT_QUOTES);
+
         $this->addMetaTag("og:title", $title, true);
         $this->addMetaTag("twitter:title", $title);
     }
 
     protected function addDescriptionMetaTags($desc) {
+        $desc = htmlspecialchars($desc, ENT_QUOTES);
+
         $this->addMetaTag("description", $desc);
         $this->addMetaTag("og:description", $desc, true);
         $this->addMetaTag("twitter:description", $desc);
@@ -97,6 +101,8 @@ class MetaDataViewHelper extends AbstractViewHelper {
     }
 
     protected function addKeywordsMetaTags($keywords, $type=null) {
+        $keywords = htmlspecialchars($keywords, ENT_QUOTES);
+
         $this->addMetaTag("keywords", $keywords);
 
         if($type) {
