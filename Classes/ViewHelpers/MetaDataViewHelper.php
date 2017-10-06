@@ -75,18 +75,26 @@ class MetaDataViewHelper extends AbstractViewHelper {
 
             $this->addKeywordsMetaTags($keywords, "article");
         }
+
+        $this->addMetaTag("article:published_time", $post->getCrDate()->format("c"));
+
+        $lastEdited = $post->getTstamp();
+
+        foreach($content as $contentElement) {
+            if($contentElement->getTstamp() > $lastEdited) {
+                $lastEdited = $contentElement->getTstamp();
+            }
+        }
+
+        $this->addMetaTag("article:modified_time", $lastEdited->format("c"));
     }
 
     protected function addTitleMetaTags($title) {
-        $title = htmlspecialchars($title, ENT_QUOTES);
-
         $this->addMetaTag("og:title", $title, true);
         $this->addMetaTag("twitter:title", $title);
     }
 
     protected function addDescriptionMetaTags($desc) {
-        $desc = htmlspecialchars($desc, ENT_QUOTES);
-
         $this->addMetaTag("description", $desc);
         $this->addMetaTag("og:description", $desc, true);
         $this->addMetaTag("twitter:description", $desc);
@@ -101,8 +109,6 @@ class MetaDataViewHelper extends AbstractViewHelper {
     }
 
     protected function addKeywordsMetaTags($keywords, $type=null) {
-        $keywords = htmlspecialchars($keywords, ENT_QUOTES);
-
         $this->addMetaTag("keywords", $keywords);
 
         if($type) {
@@ -113,7 +119,7 @@ class MetaDataViewHelper extends AbstractViewHelper {
     protected function addMetaTag($key, $value, $isProperty=false) {
         $keyTag = $isProperty ? "property" : "name";
 
-        $htmlValue = htmlspecialchars($value);
+        $htmlValue = htmlspecialchars($value, ENT_QUOTES);
 
         $GLOBALS["TSFE"]->additionalHeaderData[] = "<meta $keyTag='$key' content='$htmlValue' />";
     }

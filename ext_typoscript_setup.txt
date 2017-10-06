@@ -5,6 +5,7 @@ config.tx_extbase.persistence {
             mapping {
                 tableName = pages
                 columns.crdate.mapOnProperty = crdate
+                columns.tstamp.mapOnProperty = tstamp
             }
         }
 
@@ -17,6 +18,7 @@ config.tx_extbase.persistence {
         Atomicptr\Blogging\Domain\Model\Content {
             mapping {
                 tableName = tt_content
+                columns.tstamp.mapOnProperty = tstamp
             }
         }
     }

@@ -36,6 +36,11 @@ class Content extends AbstractEntity {
     */
     protected $image;
 
+    /**
+    * @var \DateTime
+    */
+    protected $tstamp;
+
     public function __construct() {
         $this->assets = new ObjectStorage();
         $this->image = new ObjectStorage();
@@ -51,5 +56,9 @@ class Content extends AbstractEntity {
 
     public function getImage() {
         return $this->image;
+    }
+
+    public function getTstamp() {
+        return $this->tstamp;
     }
 }

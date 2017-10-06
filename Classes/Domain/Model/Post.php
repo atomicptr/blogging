@@ -28,6 +28,11 @@ class Post extends AbstractEntity {
     */
     protected $crdate;
 
+    /** Post last changed date
+    * @var \DateTime
+    */
+    protected $tstamp;
+
     /** Post categories
     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Atomicptr\Blogging\Domain\Model\Category>
     */
@@ -77,8 +82,16 @@ class Post extends AbstractEntity {
         return $this->crdate;
     }
 
-    public function setCrdate(string $crdate) {
+    public function setCrdate(\DateTime $crdate) {
         $this->crdate = $crdate;
+    }
+
+    public function getTstamp() {
+        return $this->tstamp;
+    }
+
+    public function setTstamp(\DateTime $tstamp) {
+        $this->tstamp = $tstamp;
     }
 
     public function getCategories() {
