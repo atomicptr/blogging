@@ -22,7 +22,11 @@ Use Disqus or something similiar.
 
 ### Posts in the List plugin should have the full page content
 
-You can do this easily by using VHS: ``<v:content.render pageUid="{post.uid}" />``.
+Using the **v:content.render** view helper from the [VHS](https://extensions.typo3.org/extension/vhs/) extension makes this fairly easy:
+
+```html
+<v:content.render pageUid="{post.uid}" />
+```
 
 ## License
 
