@@ -29,10 +29,10 @@ plugin.tx_blogging {
 
     #customcategory=plugin.tx_blogging/rss=RSS Settings
     rss {
-        # cat=plugin.tx_blogging/rss; type=int+; label=RSS Channel Title
+        # cat=plugin.tx_blogging/rss; type=string; label=RSS Channel Title
         channelTitle = Blogging
 
-        # cat=plugin.tx_blogging/rss; type=int+; label=RSS Channel Description
+        # cat=plugin.tx_blogging/rss; type=string; label=RSS Channel Description
         channelDescription = Minimal blog extension that makes use of TYPO3s core elements.
 
         # cat=plugin.tx_blogging/rss; type=int+; label=Maximum length for descriptions
