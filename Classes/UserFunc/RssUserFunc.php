@@ -10,6 +10,11 @@ use Atomicptr\Blogging\Domain\Repository\PostRepository;
 
 class RssUserFunc {
 
+    /**
+     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+     */
+    public $cObj;
+
     public function render($content, $conf) {
         $objectManager = GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Object\\ObjectManager");
         $postRepository = $objectManager->get(PostRepository::class);
@@ -20,8 +25,10 @@ class RssUserFunc {
 
         $posts = null;
 
-        if(isset($conf["category"])) {
-            $categories = GeneralUtility::trimExplode(",", $conf["category"], true);
+        $categoryId = $this->cObj->stdWrapValue("category", $conf, null);
+
+        if($categoryId) {
+            $categories = GeneralUtility::trimExplode(",", $categoryId, true);
             $posts = $postRepository->findByCategories($categories);
         } else {
             $posts = $postRepository->findAll();

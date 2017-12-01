@@ -56,3 +56,12 @@ page.headerData.1337 {
     value = <link rel="alternate" type="application/atom+xml" title="{$plugin.tx_blogging.rss.channelTitle}" href="/rss.xml" />
     insertData = 1
 }
+
+
+tx_blogging_category_rss < tx_blogging_rss
+tx_blogging_category_rss {
+    typeNum = 1338
+
+    10.category.cObject = TEXT
+    10.category.cObject.data = GP:tx_blogging_category
+}
