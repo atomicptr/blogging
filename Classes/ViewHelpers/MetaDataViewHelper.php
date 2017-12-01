@@ -104,9 +104,9 @@ class MetaDataViewHelper extends AbstractViewHelper {
     protected function addImageMetaTags(FileReference $image) {
         $baseUrl = $this->controllerContext->getRequest()->getBaseUri();
 
-        $this->addMetaTag("og:image", $baseUrl.$image->getPublicUrl());
-        $this->addMetaTag("og:image:width", $image->getProperty("width"));
-        $this->addMetaTag("og:image:height", $image->getProperty("height"));
+        $this->addMetaTag("og:image", $baseUrl.$image->getPublicUrl(), true);
+        $this->addMetaTag("og:image:width", $image->getProperty("width"), true);
+        $this->addMetaTag("og:image:height", $image->getProperty("height"), true);
     }
 
     protected function addTypeMetaTags($type) {
