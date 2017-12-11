@@ -3,7 +3,7 @@ plugin.tx_blogging {
     publicResources = EXT:blogging/Resources/Public/
     privateResources = EXT:blogging/Resources/Private/
 
-    #customcategory=plugin.tx_blogging/view=View
+    # customsubcategory=view=View
     view {
         # cat=plugin.tx_blogging/view; type=string; label=Templates Root Path
         templateRootPath = EXT:blogging/Resources/Private/Templates/
@@ -15,7 +15,7 @@ plugin.tx_blogging {
         paginatorViewHelperRootPath = EXT:blogging/Resources/Private/Templates/
     }
 
-    #customcategory=plugin.tx_blogging/blog=Blog Settings
+    # customsubcategory=blog=Blog Settings
     settings {
         # cat=plugin.tx_blogging/blog; type=int+; label=Blog post storage Uid
         blogPostStorageUid = 1
@@ -27,7 +27,7 @@ plugin.tx_blogging {
         postsPerPage = 10
     }
 
-    #customcategory=plugin.tx_blogging/rss=RSS Settings
+    # customsubcategory=rss=RSS Settings
     rss {
         # cat=plugin.tx_blogging/rss; type=string; label=RSS Channel Title
         channelTitle = Blogging
