@@ -1,0 +1,16 @@
+mod.wizards.newContentElement.wizardItems.plugins.elements {
+    blogging_postlistplugin {
+        iconIdentifier = tx_blogging_icon
+        title = Blogging: Post List
+        description = Displays a list of blog posts.
+        tt_content_defValues {
+            CType = list
+            list_type = blogging_postlistplugin
+        }
+    }
+
+    blogging_categorypostlistplugin < .blogging_postlistplugin
+    blogging_categorypostlistplugin.title = Blogging: Category Page Plugin
+    blogging_categorypostlistplugin.description = Plugin to display the detail page for categories.
+    blogging_categorypostlistplugin.tt_content_defValues.list_type = blogging_categorypostlistplugin
+}

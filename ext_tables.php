@@ -18,6 +18,13 @@ call_user_func(
         );
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, "Configuration/TypoScript", "Blogging");
+
+        $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Imaging\IconRegistry');
+        $iconRegistry->registerIcon(
+            "tx_blogging_icon",
+            "TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider",
+            ["source" => "EXT:blogging/ext_icon.png"]
+        );
     },
     $_EXTKEY
 );
