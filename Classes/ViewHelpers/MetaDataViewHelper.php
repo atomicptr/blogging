@@ -32,6 +32,8 @@ class MetaDataViewHelper extends AbstractViewHelper {
             $this->addDescriptionMetaTags($summary);
         }
 
+        $twitterCard = "summary";
+
         $media = $post->getMedia();
 
         // post has media attached? Use first
@@ -60,10 +62,13 @@ class MetaDataViewHelper extends AbstractViewHelper {
 
                 if(isset($image)) {
                     $this->addImageMetaTags($image);
+                    $twitterCard = "summary_large_image";
                     break;
                 }
             }
         }
+
+        $this->addMetaTag("twitter:card", $twitterCard);
 
         $this->addTypeMetaTags("article");
 
@@ -104,9 +109,13 @@ class MetaDataViewHelper extends AbstractViewHelper {
     protected function addImageMetaTags(FileReference $image) {
         $baseUrl = $this->controllerContext->getRequest()->getBaseUri();
 
-        $this->addMetaTag("og:image", $baseUrl.$image->getPublicUrl(), true);
+        $publicUrl = $baseUrl.$image->getPublicUrl();
+
+        $this->addMetaTag("og:image", $publicUrl, true);
         $this->addMetaTag("og:image:width", $image->getProperty("width"), true);
         $this->addMetaTag("og:image:height", $image->getProperty("height"), true);
+
+        $this->addMetaTag("twitter:image", $publicUrl, true);
     }
 
     protected function addTypeMetaTags($type) {
