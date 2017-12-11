@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+    <file source-language="en" datatype="plaintext" original="messages">
+        <header/>
+        <body>
+            <!-- Constants Editor: Blog Settings-->
+            <trans-unit id="tx_blogging_constants_category_blog" xml:space="preserve">
+                <source>Blog Settings</source>
+                <target>Blog Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_blog_storageuid" xml:space="preserve">
+                <source>Blog Post Storage Uid</source>
+                <target>Blog Beitrag-Speicherorts Seiten ID</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_blog_catpage" xml:space="preserve">
+                <source>Page which contains the category list plugin</source>
+                <target>Seite die das Kategorie Listen Plugin enthält.</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_blog_numpage" xml:space="preserve">
+                <source>Number of posts per page</source>
+                <target>Anzahl Posts pro Seite</target>
+            </trans-unit>
+
+            <!-- Constants Editor: RSS Settings-->
+            <trans-unit id="tx_blogging_constants_category_rss" xml:space="preserve">
+                <source>RSS Settings</source>
+                <target>RSS Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_rss_channeltitle" xml:space="preserve">
+                <source>RSS channel title</source>
+                <target>RSS Kanal Titel</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_rss_channeldescription" xml:space="preserve">
+                <source>RSS channel description</source>
+                <target>RSS Kanal Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_rss_maxlengthdescriptions" xml:space="preserve">
+                <source>Maximum length for descriptions</source>
+                <target>Maximale Länge für Beschreibungen</target>
+            </trans-unit>
+
+            <!-- Constants Editor: View Settings-->
+            <trans-unit id="tx_blogging_constants_category_view" xml:space="preserve">
+                <source>View Settings</source>
+                <target>Ansichtseinstellungen</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_view_templatepath" xml:space="preserve">
+                <source>Template Root Path</source>
+                <target>Template Root Pfad</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_view_partialpath" xml:space="preserve">
+                <source>Partial Root Path</source>
+                <target>Partial Root Pfad</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_constants_category_view_paginator" xml:space="preserve">
+                <source>Paginator View Helper Root Path</source>
+                <target>"Paginator View Helper Root" Pfad</target>
+            </trans-unit>
+
+            <!-- Plugins -->
+            <trans-unit id="tx_blogging_plugin_postlist" xml:space="preserve">
+                <source>Blogging: Post List</source>
+                <target>Blogging: Beitragsliste</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_plugin_postlist_description" xml:space="preserve">
+                <source>Displays a list of blog posts.</source>
+                <target>Zeigt eine Liste von Blog Beiträgen an.</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_plugin_categorypostlist" xml:space="preserve">
+                <source>Blogging: Category Post List Plugin</source>
+                <target>Blogging: Kategoriebeitragslistenplugin</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_plugin_categorypostlist_description" xml:space="preserve">
+                <source>Plugin to display the detail page for categories.</source>
+                <target>Plugin um die Detailseite für Kategorien darzustellen.</target>
+            </trans-unit>
+            <trans-unit id="tx_blogging_plugin_postlist_selectcategories" xml:space="preserve">
+                <source>Select categories to display:</source>
+                <target>Kategorien die dargestellt werden sollen:</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
