@@ -13,7 +13,7 @@
                     <settings.category>
                         <TCEforms>
                             <exclude>0</exclude>
-                            <label>Select categories to display:</label>
+                            <label>LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_postlist_selectcategories</label>
                             <config>
                                 <type>select</type>
                                 <autoSizeMax>20</autoSizeMax>

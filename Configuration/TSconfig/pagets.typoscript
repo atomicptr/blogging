@@ -1,8 +1,8 @@
 mod.wizards.newContentElement.wizardItems.plugins.elements {
     blogging_postlistplugin {
         iconIdentifier = tx_blogging_icon
-        title = Blogging: Post List
-        description = Displays a list of blog posts.
+        title = LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_postlist
+        description = LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_postlist_description
         tt_content_defValues {
             CType = list
             list_type = blogging_postlistplugin
@@ -10,7 +10,7 @@ mod.wizards.newContentElement.wizardItems.plugins.elements {
     }
 
     blogging_categorypostlistplugin < .blogging_postlistplugin
-    blogging_categorypostlistplugin.title = Blogging: Category Page Plugin
-    blogging_categorypostlistplugin.description = Plugin to display the detail page for categories.
+    blogging_categorypostlistplugin.title = LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_categorypostlist
+    blogging_categorypostlistplugin.description = LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_categorypostlist_description
     blogging_categorypostlistplugin.tt_content_defValues.list_type = blogging_categorypostlistplugin
 }

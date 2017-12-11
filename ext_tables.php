@@ -6,14 +6,14 @@ call_user_func(
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             "Atomicptr.Blogging",
             "PostListPlugin",
-            "List posts - Blogging",
+            "LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_postlist",
             "EXT:blogging/ext_icon.png"
         );
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             "Atomicptr.Blogging",
             "CategoryPostListPlugin",
-            "List Posts by Category - Blogging",
+            "LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_plugin_categorypostlist",
             "EXT:blogging/ext_icon.png"
         );
 

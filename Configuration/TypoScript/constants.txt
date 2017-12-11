@@ -3,39 +3,39 @@ plugin.tx_blogging {
     publicResources = EXT:blogging/Resources/Public/
     privateResources = EXT:blogging/Resources/Private/
 
-    # customsubcategory=view=View
+    # customsubcategory=view=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_view
     view {
-        # cat=plugin.tx_blogging/view; type=string; label=Templates Root Path
+        # cat=plugin.tx_blogging/view; type=string; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_view_templatepath
         templateRootPath = EXT:blogging/Resources/Private/Templates/
 
-        # cat=plugin.tx_blogging/view; type=string; label=Partials Root Path
+        # cat=plugin.tx_blogging/view; type=string; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_view_partialpath
         partialRootPath = EXT:blogging/Resources/Private/Partials/
 
-        # cat=plugin.tx_blogging/view; type=string; label=Paginator View Helper Root Path
+        # cat=plugin.tx_blogging/view; type=string; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_view_paginator
         paginatorViewHelperRootPath = EXT:blogging/Resources/Private/Templates/
     }
 
-    # customsubcategory=blog=Blog Settings
+    # customsubcategory=blog=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_blog
     settings {
-        # cat=plugin.tx_blogging/blog; type=int+; label=Blog post storage Uid
+        # cat=plugin.tx_blogging/blog; type=int+; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_blog_storageuid
         blogPostStorageUid = 1
 
-        # cat=plugin.tx_blogging/blog; type=int+; label=Page where you link the category
+        # cat=plugin.tx_blogging/blog; type=int+; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_blog_catpage
         categoryPage =
 
-        # cat=plugin.tx_blogging/blog; type=int+; label=Number of posts per page
+        # cat=plugin.tx_blogging/blog; type=int+; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_blog_numpage
         postsPerPage = 10
     }
 
-    # customsubcategory=rss=RSS Settings
+    # customsubcategory=rss=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_rss
     rss {
-        # cat=plugin.tx_blogging/rss; type=string; label=RSS Channel Title
+        # cat=plugin.tx_blogging/rss; type=string; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_rss_channeltitle
         channelTitle = Blogging
 
-        # cat=plugin.tx_blogging/rss; type=string; label=RSS Channel Description
+        # cat=plugin.tx_blogging/rss; type=string; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_rss_channeldescription
         channelDescription = Minimal blog extension that makes use of TYPO3s core elements.
 
-        # cat=plugin.tx_blogging/rss; type=int+; label=Maximum length for descriptions
+        # cat=plugin.tx_blogging/rss; type=int+; label=LLL:EXT:blogging/Resources/Private/Language/locallang_be.xlf:tx_blogging_constants_category_rss_maxlengthdescriptions
         descriptionMaxLength = 500
     }
 }
