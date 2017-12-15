@@ -4,6 +4,8 @@ namespace Atomicptr\Blogging\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
+use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 class Content extends AbstractEntity {
 
     /**

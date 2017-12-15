@@ -6,6 +6,8 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
+use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 class Post extends AbstractEntity {
 
     /** The posts subtitle
