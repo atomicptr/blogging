@@ -22,6 +22,11 @@ class MetaDataViewHelper extends AbstractViewHelper {
 
         $post = $postRepository->findByUid($postUid);
 
+        // no post found? Do nothing
+        if(!$post) {
+            return;
+        }
+
         $content = $post->getContent();
 
         $this->addTitleMetaTags($post->getTitle());
@@ -36,12 +41,12 @@ class MetaDataViewHelper extends AbstractViewHelper {
 
         $media = $post->getMedia();
 
+        $image = null;
+
         // post has media attached? Use first
         if($media && $media->count() > 0) {
-            $this->addImageMetaTags($media->current()->getOriginalResource());
+            $image = $media->current()->getOriginalResource();
         } else {
-            $image = null;
-
             $IMAGE_TYPE = 2;
 
             foreach($content as $contentElement) {
@@ -59,13 +64,18 @@ class MetaDataViewHelper extends AbstractViewHelper {
                         }
                     }
                 }
-
-                if(isset($image)) {
-                    $this->addImageMetaTags($image);
-                    $twitterCard = "summary_large_image";
-                    break;
-                }
             }
+        }
+
+        if($image !== null) {
+            $width = $image->getProperty("width");
+            $height = $image->getProperty("height");
+
+            if($width >= $height) {
+                $twitterCard = "summary_large_image";
+            }
+
+            $this->addImageMetaTags($image);
         }
 
         $this->addMetaTag("twitter:card", $twitterCard);
@@ -107,7 +117,7 @@ class MetaDataViewHelper extends AbstractViewHelper {
     }
 
     protected function addImageMetaTags(FileReference $image) {
-        $baseUrl = $this->controllerContext->getRequest()->getBaseUri();
+        $baseUrl = $this->renderingContext->getControllerContext()->getRequest()->getBaseUri();
 
         $publicUrl = $baseUrl.$image->getPublicUrl();
 
