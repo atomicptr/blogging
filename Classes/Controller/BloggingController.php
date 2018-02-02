@@ -4,16 +4,20 @@ namespace Atomicptr\Blogging\Controller;
 
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
+use TYPO3\CMS\Extbase\Annotation\Inject as inject;
+
 class BloggingController extends ActionController {
 
     /**
     * @var \Atomicptr\Blogging\Domain\Repository\PostRepository
+    * @extensionScannerIgnoreLine
     * @inject
     */
     protected $postRepository;
 
     /**
     * @var \Atomicptr\Blogging\Domain\Repository\CategoryRepository
+    * @extensionScannerIgnoreLine
     * @inject
     */
     protected $categoryRepository;

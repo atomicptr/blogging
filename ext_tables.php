@@ -17,6 +17,7 @@ call_user_func(
             "EXT:blogging/ext_icon.png"
         );
 
+        // @extensionScannerIgnoreLine
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($extKey, "Configuration/TypoScript", "Blogging");
 
         $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Imaging\IconRegistry');

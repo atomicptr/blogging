@@ -6,7 +6,9 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
+use TYPO3\CMS\Extbase\Annotation\Inject as inject;
 
 class Post extends AbstractEntity {
 
@@ -47,6 +49,7 @@ class Post extends AbstractEntity {
 
     /**
     * @var \Atomicptr\Blogging\Domain\Repository\ContentRepository
+    * @extensionScannerIgnoreLine
     * @inject
     */
     protected $contentRepository;
