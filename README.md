@@ -28,6 +28,11 @@ Using the **v:content.render** view helper from the [VHS](https://extensions.typ
 <v:content.render pageUid="{post.uid}" />
 ```
 
+## Support me
+
+<a href="https://www.buymeacoffee.com/atomicptr" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+
 ## License
 
 MIT
